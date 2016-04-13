@@ -75,8 +75,7 @@ public class Deck {
 	 */
 	public Card deal() {
 		if (!(cards.isEmpty())) {
-        	size--;
-            return cards.remove(size);
+           size --; 
         
         }
         return null;
