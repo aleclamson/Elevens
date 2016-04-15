@@ -46,12 +46,8 @@ public class Deck {
 	 * @return true if this deck is empty, false otherwise.
 	 */
 	public boolean isEmpty() {
-		if (this.cards.size() == 0) {
-			return true;
-		}
-		return false;
+		return cards.isEmpty();
 	}
-
 	/**
 	 * Accesses the number of undealt cards in this deck.
 	 * @return the number of undealt cards in this deck.
@@ -75,7 +71,8 @@ public class Deck {
 	 */
 	public Card deal() {
 		if (!(cards.isEmpty())) {
-           size --; 
+           size --;
+           return cards.get(size);
         
         }
         return null;
