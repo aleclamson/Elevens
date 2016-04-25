@@ -50,7 +50,19 @@ public class Shuffler {
 	 * @param values is an array of integers simulating cards to be shuffled.
 	 */
 	public static void perfectShuffle(int[] values) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		for (int j = 0; j <= (values.length + 1)/ 2; j++) {
+			int k = 0;
+			int temp = values[j];
+			values[j] = values[k];
+			values[k] = temp;
+			
+		}
+		for (int j = (values.length + 1)/ 2; j < values.length; j++){
+			int k = 1;
+			int temp = values[j];
+			values[j] = values[k];
+			values[k] = temp;
+		}
 	}
 
 	/**
@@ -66,5 +78,56 @@ public class Shuffler {
 	 */
 	public static void selectionShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		  for (int k = values.length - 1; k >= 1; k--) {
+			  int r = (int) (Math.random() * (k + 1));
+			 int temp = values[k];
+			 values[k] = values[r];
+			 values[r] = temp;
+		  }
+		}
+	public static String flip() {
+		  if (Math.random() > 0.33) {
+		    return "The Coin Landed Heads Up";
+		  } else {
+		    return "The Coin Landed Tails Up";
+		  }
+	}
+	public static int[] sortArray(int[] a ){
+		for(int i = 0; i < a.length; i++) {
+			int Min = i;
+			for(int j = i + 1; j < a.length; j++) {
+				if(a[j] <= a[Min]) {
+				
+					Min = j;
+				}
+			}
+			int temp = a[Min];
+			a[Min] = a[i];
+			a[i] = temp;
+		}
+		
+		return a;
+	}
+
+	public static boolean arePermutations(int[] a, int[] b){
+		a = sortArray(a);
+		b = sortArray(b);
+		int[] longest = a;
+	
+		if (a.length < b.length){
+			longest = b;
+		}
+	
+		if (a.length == b.length){
+	
+			for(int i = 0; i < longest.length; i++) {
+				if(a[i] != b[i]) return false;
+			}
+	
+			return true;
+		}
+
+		return false;
+	
 	}
 }
